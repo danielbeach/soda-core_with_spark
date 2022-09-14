@@ -1,0 +1,14 @@
+table_name: tripdata
+metrics:
+    - row_count
+tests:
+    - row_count > 0
+columns:
+    ride_id:
+    valid_format: string
+sql_metrics:
+- sql: |
+        SELECT COUNT(DISTINCT rideable_type) as rideable_types
+        FROM tripdata
+  tests:
+      - rideable_types = 2
